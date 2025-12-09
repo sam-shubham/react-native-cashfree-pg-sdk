@@ -36,7 +36,6 @@ import {
   CFPaymentGatewayService,
 } from 'react-native-cashfree-pg-sdk';
 import {
-  CFDropCheckoutPayment,
   CFEnvironment,
   CFSession,
   CFThemeBuilder,
@@ -45,21 +44,9 @@ import {
 // ...
 
 try {
-  const session = new CFSession(
-    'order_token',
-    'order_id',
-    CFEnvironment.SANDBOX
-  );
-  const theme = new CFThemeBuilder()
-    .setNavigationBarBackgroundColor('#E64A19')
-    .setNavigationBarTextColor('#FFFFFF')
-    .setButtonBackgroundColor('#FFC107')
-    .setButtonTextColor('#FFFFFF')
-    .setPrimaryTextColor('#212121')
-    .setSecondaryTextColor('#757575')
-    .build();
-  const dropPayment = new CFDropCheckoutPayment(session, null, theme);
-  CFPaymentGatewayService.doPayment(dropPayment);
+  const session = new CFSession(paymentSessionId, orderId, CFEnvironment.PRODUCTION/CFEnvironment.SANDBOX);
+  console.log('Session', JSON.stringify(session));
+  CFPaymentGatewayService.doWebPayment(session);
 } catch (e: any) {
   console.log(e.message);
 }
