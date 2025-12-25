@@ -153,6 +153,7 @@
     ]
   },
   "dependencies": {
-    "cashfree-pg-api-contract": "^2.0.8"
+    "cashfree-pg-api-contract": "^2.0.8",
+    "expo": "^54.0.30"
   }
 }
