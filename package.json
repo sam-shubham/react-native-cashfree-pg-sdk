@@ -56,6 +56,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "expo": {
+    "plugin": "./app.plugin.js"
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
     "@react-native-community/eslint-config": "^2.0.0",
